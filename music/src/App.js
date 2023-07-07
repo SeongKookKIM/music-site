@@ -7,6 +7,61 @@ function App() {
     <div className="App">
       <Background />
       <Time />
+      <div className="main">
+        <nav>
+          <ul>
+            <li>To Do</li>
+            <li>Music</li>
+          </ul>
+        </nav>
+
+        <div className="wrapper">
+          <div className="task-input">
+            <img
+              src="assets/image/menu-bar.svg"
+              alt="menu-bar"
+              style={{ width: "20px" }}
+            />
+            <input type="text" placeholder="Add a new task" />
+          </div>
+          <div className="controls">
+            <div className="filters">
+              <span id="all" className="active">
+                All
+              </span>
+              <span id="pending">Pending</span>
+              <span id="completed">Completed</span>
+            </div>
+            <button className="clear-btn">Clear All</button>
+          </div>
+          <ul className="task-box">
+            <li className="task">
+              <input type="checkbox" id="2" />
+              <p>Create a video Youtube</p>
+
+              <div className="settings">...</div>
+            </li>
+            <li className="task">
+              <input type="checkbox" id="3" />
+              <p>Write a blog abot trends</p>
+
+              <div className="settings">...</div>
+            </li>
+            <li className="task">
+              <input type="checkbox" id="4" />
+              <p>Send poroject file to the client</p>
+
+              <div className="settings">...</div>
+            </li>
+            <li className="task">
+              <input type="checkbox" id="5" />
+              <p>Discuss new project with team</p>
+
+              <div className="settings">...</div>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   );
 }

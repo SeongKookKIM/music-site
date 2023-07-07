@@ -18,6 +18,9 @@ body {
   align-items: center;
   font-family: "yg-jalnan";
 }
+li {
+  list-style: none;
+}
 #root {
   width: 100%;
 }
@@ -44,12 +47,20 @@ body {
   border: none;
 }
 .time {
-  border: 1px solid red;
   position: fixed;
   bottom: 0;
-  right: 0;
+  right: 10px;
 }
 .time h3 {
   font-size: 4rem;
-  color: #fff;
+  color: #f9f7f7;
+}
+.main {
+  width: 800px;
+  height: 600px;
+  border: 3px solid black;
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
