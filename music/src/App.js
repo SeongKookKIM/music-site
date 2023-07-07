@@ -39,25 +39,25 @@ function App() {
               <input type="checkbox" id="2" />
               <p>Create a video Youtube</p>
 
-              <div className="settings">...</div>
+              <div className="settings">···</div>
             </li>
             <li className="task">
               <input type="checkbox" id="3" />
               <p>Write a blog abot trends</p>
 
-              <div className="settings">...</div>
+              <div className="settings">···</div>
             </li>
             <li className="task">
               <input type="checkbox" id="4" />
               <p>Send poroject file to the client</p>
 
-              <div className="settings">...</div>
+              <div className="settings">···</div>
             </li>
             <li className="task">
               <input type="checkbox" id="5" />
               <p>Discuss new project with team</p>
 
-              <div className="settings">...</div>
+              <div className="settings">···</div>
             </li>
           </ul>
         </div>
