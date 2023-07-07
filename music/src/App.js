@@ -27,30 +27,31 @@ function App() {
           <div className="controls">
             <div className="filters">
               <span id="all" className="active">
-                All
+                전체보기
               </span>
-              <span id="pending">Pending</span>
-              <span id="completed">Completed</span>
+              <span id="pending">보류</span>
+              <span id="completed">완료</span>
             </div>
             <button className="clear-btn">Clear All</button>
           </div>
           <ul className="task-box">
             <li className="task">
-              <input type="checkbox" id="2" />
-              <p>Create a video Youtube</p>
-
-              <div className="settings">···</div>
+              <label htmlFor="2">
+                <input type="checkbox" id="2" />
+                <p>Create a video Youtube</p>
+                <div className="settings">···</div>
+              </label>
             </li>
             <li className="task">
-              <input type="checkbox" id="3" />
-              <p>Write a blog abot trends</p>
-
-              <div className="settings">···</div>
+              <label htmlFor="3">
+                <input type="checkbox" id="3" />
+                <p>Write a blog abot trends</p>
+                <div className="settings">···</div>
+              </label>
             </li>
             <li className="task">
               <input type="checkbox" id="4" />
               <p>Send poroject file to the client</p>
-
               <div className="settings">···</div>
             </li>
             <li className="task">
