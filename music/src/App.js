@@ -10,15 +10,6 @@ function App() {
   const [hold, setHold] = useState("");
   const [showTodoBox, setShowTodoBox] = useState(null);
 
-  // function handlerTodoEnter(e) {
-  //   setTodoText(e.target.value);
-  //   if (todoText && e.key == "Enter") {
-  //     let a = { text: todoText, check: false };
-  //     arrayTodo.push(a);
-  //     setTodoText("");
-  //     e.target.value = "";
-  //   }
-  // }
   useEffect(() => {
     const storedArrayTodo = localStorage.getItem("arrayTodo");
     if (storedArrayTodo) {
@@ -172,7 +163,6 @@ function App() {
                     }}
                   >
                     <ul>
-                      <li>수정</li>
                       <li
                         onClick={() => {
                           handleDeleted();
