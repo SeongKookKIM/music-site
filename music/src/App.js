@@ -1,8 +1,27 @@
+import { useState } from "react";
 import "./App.css";
 import Background from "./components/Background";
 import Time from "./components/Time";
 
 function App() {
+  const [todoText, setTodoText] = useState("");
+  const [arrayTodo, setArrayTodo] = useState([]);
+  const [activeSpan, setActiveSpan] = useState("all");
+
+  function handlerTodoEnter(e) {
+    setTodoText(e.target.value);
+    if (todoText && e.key == "Enter") {
+      let a = todoText;
+      arrayTodo.push(a);
+      setTodoText("");
+      e.target.value = "";
+    }
+  }
+
+  function handleClick(e) {
+    setActiveSpan(e.target.id);
+  }
+
   return (
     <div className="App">
       <Background />
@@ -22,44 +41,65 @@ function App() {
               alt="menu-bar"
               style={{ width: "20px" }}
             />
-            <input type="text" placeholder="Add a new task" />
+            <input
+              type="text"
+              placeholder="Add a new task"
+              onKeyUp={(e) => {
+                handlerTodoEnter(e);
+              }}
+            />
           </div>
           <div className="controls">
             <div className="filters">
-              <span id="all" className="active">
+              <span
+                id="all"
+                className={activeSpan === "all" ? "active" : ""}
+                onClick={(e) => {
+                  handleClick(e);
+                }}
+              >
                 전체보기
               </span>
-              <span id="pending">보류</span>
-              <span id="completed">완료</span>
+              <span
+                id="pending"
+                className={activeSpan === "pending" ? "active" : ""}
+                onClick={(e) => {
+                  handleClick(e);
+                }}
+              >
+                보류
+              </span>
+              <span
+                id="completed"
+                className={activeSpan === "completed" ? "active" : ""}
+                onClick={(e) => {
+                  handleClick(e);
+                }}
+              >
+                완료
+              </span>
             </div>
-            <button className="clear-btn">Clear All</button>
+            <button
+              className="clear-btn"
+              onClick={() => {
+                setArrayTodo([]);
+              }}
+            >
+              Clear All
+            </button>
           </div>
           <ul className="task-box">
-            <li className="task">
-              <label htmlFor="2">
-                <input type="checkbox" id="2" />
-                <p>Create a video Youtube</p>
-                <div className="settings">···</div>
-              </label>
-            </li>
-            <li className="task">
-              <label htmlFor="3">
-                <input type="checkbox" id="3" />
-                <p>Write a blog abot trends</p>
-                <div className="settings">···</div>
-              </label>
-            </li>
-            <li className="task">
-              <input type="checkbox" id="4" />
-              <p>Send poroject file to the client</p>
-              <div className="settings">···</div>
-            </li>
-            <li className="task">
-              <input type="checkbox" id="5" />
-              <p>Discuss new project with team</p>
-
-              <div className="settings">···</div>
-            </li>
+            {arrayTodo.map((todo, idx) => {
+              return (
+                <li className="task" key={idx}>
+                  <label htmlFor={idx}>
+                    <input type="checkbox" id={idx} />
+                    <p>{todo}</p>
+                    <div className="settings">···</div>
+                  </label>
+                </li>
+              );
+            })}
           </ul>
         </div>
       </div>
