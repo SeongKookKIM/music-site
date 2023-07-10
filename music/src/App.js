@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import Background from "./components/Background";
 import Time from "./components/Time";
@@ -8,12 +8,33 @@ function App() {
   const [arrayTodo, setArrayTodo] = useState([]);
   const [activeSpan, setActiveSpan] = useState("all");
   const [hold, setHold] = useState("");
+  const [showTodoBox, setShowTodoBox] = useState(null);
+
+  // function handlerTodoEnter(e) {
+  //   setTodoText(e.target.value);
+  //   if (todoText && e.key == "Enter") {
+  //     let a = { text: todoText, check: false };
+  //     arrayTodo.push(a);
+  //     setTodoText("");
+  //     e.target.value = "";
+  //   }
+  // }
+  useEffect(() => {
+    const storedArrayTodo = localStorage.getItem("arrayTodo");
+    if (storedArrayTodo) {
+      setArrayTodo(JSON.parse(storedArrayTodo));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("arrayTodo", JSON.stringify(arrayTodo));
+  }, [arrayTodo]);
 
   function handlerTodoEnter(e) {
     setTodoText(e.target.value);
-    if (todoText && e.key == "Enter") {
+    if (todoText && e.key === "Enter") {
       let a = { text: todoText, check: false };
-      arrayTodo.push(a);
+      setArrayTodo((prev) => [...prev, a]);
       setTodoText("");
       e.target.value = "";
     }
@@ -124,8 +145,23 @@ function App() {
                       checked={todo.check}
                     />
                     <p>{todo.text}</p>
-                    <div className="settings">···</div>
                   </label>
+                  <div
+                    className="settings"
+                    onClick={() => {
+                      setShowTodoBox(idx);
+                    }}
+                  >
+                    ···
+                  </div>
+                  <div
+                    className={`todo-box ${showTodoBox === idx ? "show" : ""}`}
+                  >
+                    <ul>
+                      <li>수정</li>
+                      <li>삭제</li>
+                    </ul>
+                  </div>
                 </li>
               );
             })}

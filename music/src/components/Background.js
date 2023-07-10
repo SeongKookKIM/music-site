@@ -4,7 +4,7 @@ function Background() {
   return (
     <div className="bg">
       <video autoPlay muted loop>
-        <source src="assets/video/day.mp4"></source>
+        <source src="assets/video/비.mp4"></source>
       </video>
     </div>
   );

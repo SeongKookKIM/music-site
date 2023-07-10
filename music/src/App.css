@@ -129,7 +129,7 @@ li {
 
 .controls {
   padding: 18px 25px;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 3px solid #fff;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -180,15 +180,22 @@ li {
   padding-bottom: 0;
   border-bottom: 0;
 }
-
+.task {
+  position: relative;
+}
 .task label {
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: space-between;
+  cursor: pointer;
 }
 .task label.hold {
   pointer-events: none;
+}
+.task label p {
+  width: 100%;
+  text-align: center;
 }
 .task label p.checked {
   text-decoration: line-through;
@@ -200,6 +207,28 @@ li {
 }
 .task .settings {
   position: relative;
+  cursor: pointer;
+}
+/* .task .settings:hover + .todo-box {
+  display: block;
+} */
+.todo-box {
+  position: absolute;
+  right: 0px;
+  background-color: #f9f7f7;
+  padding: 0 30px;
+  border-radius: 5px;
+  font-size: 1rem;
+  display: none;
+}
+.todo-box.show {
+  display: block;
+}
+.todo-box ul {
+  width: 100%;
+}
+.todo-box ul li {
+  padding-top: 0.1rem;
   cursor: pointer;
 }
 .settings .task-menu {
