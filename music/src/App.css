@@ -209,9 +209,10 @@ li {
   position: relative;
   cursor: pointer;
 }
-/* .task .settings:hover + .todo-box {
-  display: block;
-} */
+.task .settings.hold {
+  pointer-events: none;
+}
+
 .todo-box {
   position: absolute;
   right: 0px;

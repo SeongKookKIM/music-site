@@ -64,6 +64,17 @@ function App() {
     return arrayTodo;
   }
 
+  function handleDeleted() {
+    const idx = showTodoBox;
+    if (idx !== undefined) {
+      const updatedArrayTodo = arrayTodo.filter((todo, index) => {
+        return index !== idx;
+      });
+      setArrayTodo(updatedArrayTodo);
+      setShowTodoBox(undefined);
+    }
+  }
+
   return (
     <div className="App">
       <Background />
@@ -147,8 +158,8 @@ function App() {
                     <p>{todo.text}</p>
                   </label>
                   <div
-                    className="settings"
-                    onClick={() => {
+                    className={`settings ${hold}`}
+                    onMouseEnter={() => {
                       setShowTodoBox(idx);
                     }}
                   >
@@ -156,10 +167,19 @@ function App() {
                   </div>
                   <div
                     className={`todo-box ${showTodoBox === idx ? "show" : ""}`}
+                    onMouseLeave={() => {
+                      setShowTodoBox(undefined);
+                    }}
                   >
                     <ul>
                       <li>수정</li>
-                      <li>삭제</li>
+                      <li
+                        onClick={() => {
+                          handleDeleted();
+                        }}
+                      >
+                        삭제
+                      </li>
                     </ul>
                   </div>
                 </li>
