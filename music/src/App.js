@@ -7,11 +7,12 @@ function App() {
   const [todoText, setTodoText] = useState("");
   const [arrayTodo, setArrayTodo] = useState([]);
   const [activeSpan, setActiveSpan] = useState("all");
+  const [hold, setHold] = useState("");
 
   function handlerTodoEnter(e) {
     setTodoText(e.target.value);
     if (todoText && e.key == "Enter") {
-      let a = todoText;
+      let a = { text: todoText, check: false };
       arrayTodo.push(a);
       setTodoText("");
       e.target.value = "";
@@ -20,6 +21,26 @@ function App() {
 
   function handleClick(e) {
     setActiveSpan(e.target.id);
+  }
+
+  function handlerChecked(idx) {
+    const updatedArrayTodo = arrayTodo.map((todo, index) => {
+      if (index === idx) {
+        return { ...todo, check: !todo.check };
+      }
+      return todo;
+    });
+    setArrayTodo(updatedArrayTodo);
+  }
+
+  function filterArrayTodo() {
+    if (activeSpan === "pending") {
+      return arrayTodo.filter((todo) => !todo.check);
+    } else if (activeSpan === "completed") {
+      return arrayTodo.filter((todo) => todo.check);
+    }
+
+    return arrayTodo;
   }
 
   return (
@@ -56,6 +77,7 @@ function App() {
                 className={activeSpan === "all" ? "active" : ""}
                 onClick={(e) => {
                   handleClick(e);
+                  setHold("");
                 }}
               >
                 전체보기
@@ -65,6 +87,7 @@ function App() {
                 className={activeSpan === "pending" ? "active" : ""}
                 onClick={(e) => {
                   handleClick(e);
+                  setHold("hold");
                 }}
               >
                 보류
@@ -74,6 +97,7 @@ function App() {
                 className={activeSpan === "completed" ? "active" : ""}
                 onClick={(e) => {
                   handleClick(e);
+                  setHold("hold");
                 }}
               >
                 완료
@@ -89,12 +113,17 @@ function App() {
             </button>
           </div>
           <ul className="task-box">
-            {arrayTodo.map((todo, idx) => {
+            {filterArrayTodo().map((todo, idx) => {
               return (
                 <li className="task" key={idx}>
-                  <label htmlFor={idx}>
-                    <input type="checkbox" id={idx} />
-                    <p>{todo}</p>
+                  <label htmlFor={idx} className={hold}>
+                    <input
+                      type="checkbox"
+                      id={idx}
+                      onChange={() => handlerChecked(idx)}
+                      checked={todo.check}
+                    />
+                    <p>{todo.text}</p>
                     <div className="settings">···</div>
                   </label>
                 </li>

@@ -180,11 +180,15 @@ li {
   padding-bottom: 0;
   border-bottom: 0;
 }
+
 .task label {
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: space-between;
+}
+.task label.hold {
+  pointer-events: none;
 }
 .task label p.checked {
   text-decoration: line-through;
