@@ -6,7 +6,6 @@ function MusicList() {
   let musicSelected = useSelector((state) => state.musicSelected);
   let dispatch = useDispatch();
 
-  console.log(musicSelected);
   return (
     <div className="music-list">
       <ul>
