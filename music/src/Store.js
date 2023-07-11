@@ -49,6 +49,17 @@ let musicSelected = createSlice({
 
 export let { handlerSelected } = musicSelected.actions;
 
+let musicAudio = createSlice({
+  name: "musicAudio",
+  initialState: { src: "" },
+  reducers: {
+    handlerAudio(state, action) {
+      state.src = action.payload.src;
+    },
+  },
+});
+export let { handlerAudio } = musicAudio.actions;
+
 export default configureStore({
   reducer: {
     backgroundVideo: backgroundVideo.reducer,
@@ -58,5 +69,6 @@ export default configureStore({
     backgroundSadVideo: backgroundSadVideo.reducer,
     backgroundStudyVideo: backgroundStudyVideo.reducer,
     musicSelected: musicSelected.reducer,
+    musicAudio: musicAudio.reducer,
   },
 });

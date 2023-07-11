@@ -4,6 +4,7 @@ import Background from "./components/Background";
 import Time from "./components/Time";
 import Todo from "./pages/Todo";
 import MusicList from "./pages/MusicList";
+import Player from "./components/Player";
 
 function App() {
   const [tab, setTab] = useState(true);
@@ -33,6 +34,7 @@ function App() {
         </nav>
         {tab ? <Todo /> : <MusicList />}
       </div>
+      <Player />
     </div>
   );
 }

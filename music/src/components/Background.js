@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { handlerAudio } from "../Store";
 
 function Background() {
   const [timeBg, setTimeBg] = useState("");
@@ -8,6 +9,8 @@ function Background() {
   const [latitude, setLatitude] = useState("");
   const [longitude, setLongitude] = useState("");
   const [weather, setWeather] = useState({});
+
+  let dispatch = useDispatch();
 
   // 날씨
 
@@ -56,58 +59,137 @@ function Background() {
     if (musicSelected.name == "rain") {
       if (backTimeHours >= 6 && backTimeHours < 18) {
         setTimeBg(bgRainList[0]);
+        dispatch(
+          handlerAudio({
+            src: "assets/music/rain-day.mp3",
+          })
+        );
       } else {
         setTimeBg(bgRainList[1]);
+        dispatch(
+          handlerAudio({
+            src: "assets/music/rain-night.mp3",
+          })
+        );
       }
     } else if (musicSelected.name == "drive") {
       setTimeBg(bgDriveList[0]);
+      dispatch(
+        handlerAudio({
+          src: "assets/music/drive.mp3",
+        })
+      );
     } else if (musicSelected.name == "sad") {
       if (backTimeHours >= 6 && backTimeHours < 18) {
         setTimeBg(bgSadList[0]);
+        dispatch(
+          handlerAudio({
+            src: "assets/music/sad-day.mp3",
+          })
+        );
       } else {
         setTimeBg(bgSadList[1]);
+        dispatch(
+          handlerAudio({
+            src: "assets/music/sad-night.mp3",
+          })
+        );
       }
     } else if (musicSelected.name == "travel") {
       if (backTimeHours >= 6 && backTimeHours < 18) {
         setTimeBg(bgTravelList[0]);
+        dispatch(
+          handlerAudio({
+            src: "assets/music/travel-day.mp3",
+          })
+        );
       } else {
         setTimeBg(bgTravelList[1]);
+        dispatch(
+          handlerAudio({
+            src: "assets/music/travel-night.mp3",
+          })
+        );
       }
     } else if (musicSelected.name == "study") {
       if (backTimeHours >= 6 && backTimeHours < 18) {
         setTimeBg(bgStudyList[0]);
+        dispatch(
+          handlerAudio({
+            src: "assets/music/attention-1.mp3",
+          })
+        );
       } else {
         setTimeBg(bgStudyList[1]);
+        dispatch(
+          handlerAudio({
+            src: "assets/music/attention-2.mp3",
+          })
+        );
       }
     } else {
       if (weather == "Clear") {
         if (backTimeHours >= 6 && backTimeHours < 17) {
           setTimeBg(bgList[0]);
+          dispatch(
+            handlerAudio({
+              src: "assets/music/day.mp3",
+            })
+          );
         } else if (backTimeHours >= 17 && backTimeHours < 20) {
           setTimeBg(bgList[1]);
+          dispatch(
+            handlerAudio({
+              src: "assets/music/sucset.mp3",
+            })
+          );
         } else {
           setTimeBg(bgList[2]);
+          dispatch(
+            handlerAudio({
+              src: "assets/music/night.mp3",
+            })
+          );
         }
       } else if (weather == "Rain" || weather == "Mist") {
         if (backTimeHours >= 6 && backTimeHours < 18) {
           setTimeBg(bgRainList[0]);
+          dispatch(
+            handlerAudio({
+              src: "assets/music/rain-day.mp3",
+            })
+          );
         } else {
           setTimeBg(bgRainList[1]);
+          dispatch(
+            handlerAudio({
+              src: "assets/music/rain-night.mp3",
+            })
+          );
         }
       } else if (weather == "Clouds") {
         if (backTimeHours >= 6 && backTimeHours < 18) {
           setTimeBg(bgStudyList[0]);
+          dispatch(
+            handlerAudio({
+              src: "assets/music/attention-1.mp3",
+            })
+          );
         } else {
           setTimeBg(bgStudyList[1]);
+          dispatch(
+            handlerAudio({
+              src: "assets/music/attention-2.mp3",
+            })
+          );
         }
       } else {
-        if (backTimeHours >= 6 && backTimeHours < 17) {
-          setTimeBg(bgList[0]);
-        } else if (backTimeHours >= 17 && backTimeHours < 20) {
-          setTimeBg(bgList[1]);
-        } else {
-          setTimeBg(bgList[2]);
-        }
+        setTimeBg("");
+        dispatch(
+          handlerAudio({
+            src: "",
+          })
+        );
       }
     }
 
