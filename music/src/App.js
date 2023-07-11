@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
+import "./Media.css";
 import Background from "./components/Background";
 import Time from "./components/Time";
 import Todo from "./pages/Todo";

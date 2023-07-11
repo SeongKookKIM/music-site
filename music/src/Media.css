@@ -1,0 +1,92 @@
+@media all and (max-width: 1350px) {
+  .time h3 {
+    font-size: 3rem;
+  }
+}
+@media all and (max-width: 1250px) {
+  .time {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+  }
+}
+@media all and (max-width: 900px) {
+  .main {
+    width: 600px;
+  }
+}
+@media all and (max-width: 650px) {
+  .main {
+    width: 90%;
+  }
+  .audio-wrapper {
+    width: 90%;
+  }
+  .time h3 {
+    font-size: 2rem;
+  }
+  .main nav ul li {
+    font-size: 2rem;
+  }
+  .task-input {
+    height: 42px;
+    padding: 0 25px;
+  }
+  .task-input input::placeholder {
+    font-size: 1rem;
+  }
+  .music-list {
+    height: 90%;
+  }
+  .music-list ul {
+    height: 100%;
+  }
+}
+@media all and (max-width: 500px) {
+  .main {
+    height: 60%;
+  }
+  .main::-webkit-scrollbar {
+    display: none;
+  }
+  .main nav ul li {
+    font-size: 1.5rem;
+  }
+  .filters span {
+    font-size: 14px;
+  }
+
+  .controls .clear-btn {
+    padding: 4px 6px;
+    font-size: 12px;
+  }
+  .audio-wrapper {
+    bottom: 60px;
+  }
+  .task-box {
+    height: 276px;
+  }
+  .task label input {
+    width: 17px;
+    height: 17px;
+  }
+  .task label p {
+    font-size: 0.9rem;
+  }
+  .todo-box {
+    padding: 8px 20px;
+    overflow-y: visible;
+  }
+  .music-list ul li p {
+    font-size: 1.3rem;
+  }
+  .time {
+    width: 100%;
+    text-align: center;
+  }
+}
+@media all and (max-width: 400px) {
+  .task-box {
+    height: 189px;
+  }
+}
