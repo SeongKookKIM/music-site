@@ -25,8 +25,6 @@ function Background() {
     let res = await fetch(url);
     let data = await res.json();
     setWeather(data.weather[0].main);
-    // console.log(weather.weather[0].main);
-    // console.log(weather);
   };
   useEffect(() => {
     getCurrentLocation();
@@ -47,6 +45,7 @@ function Background() {
   let bgDriveList = useSelector((state) => state.backgroundDriveVideo);
   let bgSadList = useSelector((state) => state.backgroundSadVideo);
   let bgStudyList = useSelector((state) => state.backgroundStudyVideo);
+  let musicSelected = useSelector((state) => state.musicSelected);
 
   useEffect(() => {
     let bgTimer = setInterval(() => {
@@ -54,33 +53,61 @@ function Background() {
       setBackTimeSec(new Date().getSeconds());
     }, 1000);
 
-    if (weather == "Clear") {
-      if (backTimeHours >= 6 && backTimeHours < 17) {
-        setTimeBg(bgList[0]);
-      } else if (backTimeHours >= 17 && backTimeHours < 20) {
-        setTimeBg(bgList[1]);
-      } else {
-        setTimeBg(bgList[2]);
-      }
-    } else if (weather == "Rain" || weather == "Mist") {
+    if (musicSelected.name == "rain") {
       if (backTimeHours >= 6 && backTimeHours < 18) {
         setTimeBg(bgRainList[0]);
       } else {
         setTimeBg(bgRainList[1]);
       }
-    } else if (weather == "Clouds") {
+    } else if (musicSelected.name == "drive") {
+      setTimeBg(bgDriveList[0]);
+    } else if (musicSelected.name == "sad") {
+      if (backTimeHours >= 6 && backTimeHours < 18) {
+        setTimeBg(bgSadList[0]);
+      } else {
+        setTimeBg(bgSadList[1]);
+      }
+    } else if (musicSelected.name == "travel") {
+      if (backTimeHours >= 6 && backTimeHours < 18) {
+        setTimeBg(bgTravelList[0]);
+      } else {
+        setTimeBg(bgTravelList[1]);
+      }
+    } else if (musicSelected.name == "study") {
       if (backTimeHours >= 6 && backTimeHours < 18) {
         setTimeBg(bgStudyList[0]);
       } else {
         setTimeBg(bgStudyList[1]);
       }
     } else {
-      if (backTimeHours >= 6 && backTimeHours < 17) {
-        setTimeBg(bgList[0]);
-      } else if (backTimeHours >= 17 && backTimeHours < 20) {
-        setTimeBg(bgList[1]);
+      if (weather == "Clear") {
+        if (backTimeHours >= 6 && backTimeHours < 17) {
+          setTimeBg(bgList[0]);
+        } else if (backTimeHours >= 17 && backTimeHours < 20) {
+          setTimeBg(bgList[1]);
+        } else {
+          setTimeBg(bgList[2]);
+        }
+      } else if (weather == "Rain" || weather == "Mist") {
+        if (backTimeHours >= 6 && backTimeHours < 18) {
+          setTimeBg(bgRainList[0]);
+        } else {
+          setTimeBg(bgRainList[1]);
+        }
+      } else if (weather == "Clouds") {
+        if (backTimeHours >= 6 && backTimeHours < 18) {
+          setTimeBg(bgStudyList[0]);
+        } else {
+          setTimeBg(bgStudyList[1]);
+        }
       } else {
-        setTimeBg(bgList[2]);
+        if (backTimeHours >= 6 && backTimeHours < 17) {
+          setTimeBg(bgList[0]);
+        } else if (backTimeHours >= 17 && backTimeHours < 20) {
+          setTimeBg(bgList[1]);
+        } else {
+          setTimeBg(bgList[2]);
+        }
       }
     }
 

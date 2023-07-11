@@ -24,7 +24,7 @@ let backgroundTravelVideo = createSlice({
 
 let backgroundDriveVideo = createSlice({
   name: "backgroundDriveVideo",
-  initialState: ["assets/video/드라이브.mp4"],
+  initialState: ["assets/video/drive.mp4"],
 });
 
 let backgroundSadVideo = createSlice({
@@ -37,6 +37,18 @@ let backgroundStudyVideo = createSlice({
   initialState: ["assets/video/집중.mp4", "assets/video/집중2.mp4"],
 });
 
+let musicSelected = createSlice({
+  name: "musicSelected",
+  initialState: { name: "" },
+  reducers: {
+    handlerSelected(state, action) {
+      state.name = action.payload.name;
+    },
+  },
+});
+
+export let { handlerSelected } = musicSelected.actions;
+
 export default configureStore({
   reducer: {
     backgroundVideo: backgroundVideo.reducer,
@@ -45,5 +57,6 @@ export default configureStore({
     backgroundDriveVideo: backgroundDriveVideo.reducer,
     backgroundSadVideo: backgroundSadVideo.reducer,
     backgroundStudyVideo: backgroundStudyVideo.reducer,
+    musicSelected: musicSelected.reducer,
   },
 });

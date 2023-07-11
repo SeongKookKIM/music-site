@@ -264,3 +264,28 @@ li {
 .task-menu li i {
   padding-right: 8px;
 }
+
+/* @@@ Music-list */
+.music-list {
+  width: 100%;
+  height: 500px;
+  display: flex;
+}
+.music-list ul {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+
+.music-list ul li p {
+  font-size: 2rem;
+  color: #112d4e;
+  cursor: pointer;
+}
+.music-list ul li p:hover {
+  color: #f9f7f7;
+}
