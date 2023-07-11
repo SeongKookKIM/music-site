@@ -3,26 +3,34 @@ import { useSelector } from "react-redux";
 
 function Background() {
   const [timeBg, setTimeBg] = useState("");
+  const [backTimeHours, setBackTimeHours] = useState(new Date().getHours());
+  const [backTimeSec, setBackTimeSec] = useState(new Date().getSeconds());
 
   // Time
   let bgList = useSelector((state) => state.backgroundVideo);
 
   useEffect(() => {
-    let hours = new Date().getHours();
-    if (hours >= 6 && hours < 17) {
+    let bgTimer = setInterval(() => {
+      setBackTimeHours(new Date().getHours());
+      setBackTimeSec(new Date().getSeconds());
+    }, 1000);
+
+    if (backTimeHours >= 6 && backTimeHours < 17) {
       setTimeBg(bgList[0]);
-    } else if (hours >= 17 && hours < 20) {
+    } else if (backTimeHours >= 17 && backTimeHours < 20) {
       setTimeBg(bgList[1]);
     } else {
       setTimeBg(bgList[2]);
     }
-  }, []);
+
+    return () => {
+      clearInterval(bgTimer);
+    };
+  }, [backTimeSec]);
 
   return (
     <div className="bg">
-      <video autoPlay muted loop>
-        <source src={timeBg}></source>
-      </video>
+      <video autoPlay muted loop src={timeBg} type="video/mp4"></video>
     </div>
   );
 }
