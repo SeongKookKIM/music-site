@@ -140,7 +140,7 @@ function Background() {
           setTimeBg(bgList[1]);
           dispatch(
             handlerAudio({
-              src: "assets/image/music/sucset.mp3",
+              src: "assets/image/music/sunset.mp3",
             })
           );
         } else {
@@ -184,12 +184,28 @@ function Background() {
           );
         }
       } else {
-        setTimeBg("");
-        dispatch(
-          handlerAudio({
-            src: "",
-          })
-        );
+        if (backTimeHours >= 6 && backTimeHours < 17) {
+          setTimeBg(bgList[0]);
+          dispatch(
+            handlerAudio({
+              src: "assets/image/music/day.mp3",
+            })
+          );
+        } else if (backTimeHours >= 17 && backTimeHours < 20) {
+          setTimeBg(bgList[1]);
+          dispatch(
+            handlerAudio({
+              src: "assets/image/music/sunset.mp3",
+            })
+          );
+        } else {
+          setTimeBg(bgList[2]);
+          dispatch(
+            handlerAudio({
+              src: "assets/image/music/night.mp3",
+            })
+          );
+        }
       }
     }
 
