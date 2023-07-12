@@ -5,8 +5,7 @@
 /.pnp
 .pnp.js
 
-# public 폴더 제외
-/public
+
 
 # testing
 /coverage

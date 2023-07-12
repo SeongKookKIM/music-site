@@ -52,7 +52,8 @@ function Background() {
 
   useEffect(() => {
     let bgTimer = setInterval(() => {
-      setBackTimeHours(new Date().getHours());
+      // setBackTimeHours(new Date().getHours());
+      setBackTimeHours(22);
       setBackTimeSec(new Date().getSeconds());
     }, 1000);
 
