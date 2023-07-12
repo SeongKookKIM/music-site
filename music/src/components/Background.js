@@ -220,7 +220,7 @@ function Background() {
         autoPlay
         muted
         loop
-        playsinline
+        playsInline
         src={timeBg}
         type="video/mp4"
       ></video>
