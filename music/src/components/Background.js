@@ -216,7 +216,14 @@ function Background() {
 
   return (
     <div className="bg">
-      <video autoPlay muted loop src={timeBg} type="video/mp4"></video>
+      <video
+        autoPlay
+        muted
+        loop
+        playsinline
+        src={timeBg}
+        type="video/mp4"
+      ></video>
     </div>
   );
 }
