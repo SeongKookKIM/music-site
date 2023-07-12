@@ -61,14 +61,14 @@ function Background() {
         setTimeBg(bgRainList[0]);
         dispatch(
           handlerAudio({
-            src: "assets/music/rain-day.mp3",
+            src: "assets/image/music/rain-day.mp3",
           })
         );
       } else {
         setTimeBg(bgRainList[1]);
         dispatch(
           handlerAudio({
-            src: "assets/music/rain-night.mp3",
+            src: "assets/image/music/rain-night.mp3",
           })
         );
       }
@@ -76,7 +76,7 @@ function Background() {
       setTimeBg(bgDriveList[0]);
       dispatch(
         handlerAudio({
-          src: "assets/music/drive.mp3",
+          src: "assets/image/music/drive.mp3",
         })
       );
     } else if (musicSelected.name == "sad") {
@@ -84,14 +84,14 @@ function Background() {
         setTimeBg(bgSadList[0]);
         dispatch(
           handlerAudio({
-            src: "assets/music/sad-day.mp3",
+            src: "assets/image/music/sad-day.mp3",
           })
         );
       } else {
         setTimeBg(bgSadList[1]);
         dispatch(
           handlerAudio({
-            src: "assets/music/sad-night.mp3",
+            src: "assets/image/music/sad-night.mp3",
           })
         );
       }
@@ -100,14 +100,14 @@ function Background() {
         setTimeBg(bgTravelList[0]);
         dispatch(
           handlerAudio({
-            src: "assets/music/travel-day.mp3",
+            src: "assets/image/music/travel-day.mp3",
           })
         );
       } else {
         setTimeBg(bgTravelList[1]);
         dispatch(
           handlerAudio({
-            src: "assets/music/travel-night.mp3",
+            src: "assets/image/music/travel-night.mp3",
           })
         );
       }
@@ -116,14 +116,14 @@ function Background() {
         setTimeBg(bgStudyList[0]);
         dispatch(
           handlerAudio({
-            src: "assets/music/attention-1.mp3",
+            src: "assets/image/music/attention-1.mp3",
           })
         );
       } else {
         setTimeBg(bgStudyList[1]);
         dispatch(
           handlerAudio({
-            src: "assets/music/attention-2.mp3",
+            src: "assets/image/music/attention-2.mp3",
           })
         );
       }
@@ -133,21 +133,21 @@ function Background() {
           setTimeBg(bgList[0]);
           dispatch(
             handlerAudio({
-              src: "assets/music/day.mp3",
+              src: "assets/image/music/day.mp3",
             })
           );
         } else if (backTimeHours >= 17 && backTimeHours < 20) {
           setTimeBg(bgList[1]);
           dispatch(
             handlerAudio({
-              src: "assets/music/sucset.mp3",
+              src: "assets/image/music/sucset.mp3",
             })
           );
         } else {
           setTimeBg(bgList[2]);
           dispatch(
             handlerAudio({
-              src: "assets/music/night.mp3",
+              src: "assets/image/music/night.mp3",
             })
           );
         }
@@ -156,14 +156,14 @@ function Background() {
           setTimeBg(bgRainList[0]);
           dispatch(
             handlerAudio({
-              src: "assets/music/rain-day.mp3",
+              src: "assets/image/music/rain-day.mp3",
             })
           );
         } else {
           setTimeBg(bgRainList[1]);
           dispatch(
             handlerAudio({
-              src: "assets/music/rain-night.mp3",
+              src: "assets/image/music/rain-night.mp3",
             })
           );
         }
@@ -172,14 +172,14 @@ function Background() {
           setTimeBg(bgStudyList[0]);
           dispatch(
             handlerAudio({
-              src: "assets/music/attention-1.mp3",
+              src: "assets/image/music/attention-1.mp3",
             })
           );
         } else {
           setTimeBg(bgStudyList[1]);
           dispatch(
             handlerAudio({
-              src: "assets/music/attention-2.mp3",
+              src: "assets/image/music/attention-2.mp3",
             })
           );
         }

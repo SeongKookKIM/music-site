@@ -3,38 +3,41 @@ import { configureStore, createSlice } from "@reduxjs/toolkit";
 let backgroundVideo = createSlice({
   name: "backgroundVideo",
   initialState: [
-    "assets/video/day.mp4",
-    "assets/video/sunset.mp4",
-    "assets/video/night.mp4",
+    "assets/image/video/day.mp4",
+    "assets/image/video/sunset.mp4",
+    "assets/image/video/night.mp4",
   ],
 });
 
 let backgroundRainVideo = createSlice({
   name: "backgroundRainVideo",
-  initialState: ["assets/video/비.mp4", "assets/video/비2.mp4"],
+  initialState: ["assets/image/video/비.mp4", "assets/image/video/비2.mp4"],
 });
 
 let backgroundTravelVideo = createSlice({
   name: "backgroundTravelVideo",
   initialState: [
-    "assets/video/travel-day.mp4",
-    "assets/video/travel-night.mp4",
+    "assets/image/video/travel-day.mp4",
+    "assets/image/video/travel-night.mp4",
   ],
 });
 
 let backgroundDriveVideo = createSlice({
   name: "backgroundDriveVideo",
-  initialState: ["assets/video/drive.mp4"],
+  initialState: ["assets/image/video/drive.mp4"],
 });
 
 let backgroundSadVideo = createSlice({
   name: "backgroundSadVideo",
-  initialState: ["assets/video/슬픈음악.mp4", "assets/video/슬픈음악2.mp4"],
+  initialState: [
+    "assets/image/video/슬픈음악.mp4",
+    "assets/image/video/슬픈음악2.mp4",
+  ],
 });
 
 let backgroundStudyVideo = createSlice({
   name: "backgroundStudyVideo",
-  initialState: ["assets/video/집중.mp4", "assets/video/집중2.mp4"],
+  initialState: ["assets/image/video/집중.mp4", "assets/image/video/집중2.mp4"],
 });
 
 let musicSelected = createSlice({
