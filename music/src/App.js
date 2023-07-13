@@ -1,19 +1,24 @@
-import React, { useState } from "react";
+import React, { Suspense, lazy, useDeferredValue, useState } from "react";
 import "./App.css";
 import "./Media.css";
-import Background from "./components/Background";
-import Time from "./components/Time";
-import Todo from "./pages/Todo";
-import MusicList from "./pages/MusicList";
-import Player from "./components/Player";
+
+const Background = lazy(() => import("./components/Background"));
+const Time = lazy(() => import("./components/Time"));
+const Todo = lazy(() => import("./pages/Todo"));
+const MusicList = lazy(() => import("./pages/MusicList"));
+const Player = lazy(() => import("./components/Player"));
 
 function App() {
   const [tab, setTab] = useState(true);
 
+  let state1 = useDeferredValue(tab);
+
   return (
     <div className="App">
-      <Background />
-      <Time />
+      <Suspense fallback={<div>로딩중</div>}>
+        <Background />
+        <Time />
+      </Suspense>
       <div className="main">
         <nav>
           <ul>
@@ -33,9 +38,13 @@ function App() {
             </li>
           </ul>
         </nav>
-        {tab ? <Todo /> : <MusicList />}
+        <Suspense fallback={<div>로딩중...</div>}>
+          {state1 ? <Todo /> : <MusicList />}
+        </Suspense>
       </div>
-      <Player />
+      <Suspense fallback={<div>로딩중...</div>}>
+        <Player />
+      </Suspense>
     </div>
   );
 }

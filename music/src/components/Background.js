@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useDeferredValue, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { handlerAudio } from "../Store";
 
@@ -9,6 +9,8 @@ function Background() {
   const [latitude, setLatitude] = useState("");
   const [longitude, setLongitude] = useState("");
   const [weather, setWeather] = useState({});
+
+  let stateTimeBg = useDeferredValue(timeBg);
 
   let dispatch = useDispatch();
 
@@ -221,7 +223,7 @@ function Background() {
         muted
         loop
         playsInline
-        src={timeBg}
+        src={stateTimeBg}
         type="video/mp4"
       ></video>
     </div>

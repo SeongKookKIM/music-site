@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useDeferredValue, useEffect, useState } from "react";
 
 function Time() {
   let [currentTime, setCurrentTime] = useState(
     `${new Date().getHours()} : ${new Date().getMinutes()} : ${new Date().getSeconds()}`
   );
+
+  let stateCurrentTIme = useDeferredValue(currentTime);
 
   useEffect(() => {
     let timer = setInterval(() => {
@@ -19,7 +21,7 @@ function Time() {
 
   return (
     <div className="time">
-      <h3>{currentTime}</h3>
+      <h3>{stateCurrentTIme}</h3>
     </div>
   );
 }
