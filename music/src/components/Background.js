@@ -17,12 +17,17 @@ function Background() {
   // 날씨
 
   const getCurrentLocation = () => {
-    navigator.geolocation.getCurrentPosition((position) => {
-      let lat = position.coords.latitude;
-      let lon = position.coords.longitude;
-      setLatitude(lat);
-      setLongitude(lon);
-    });
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        let lat = position.coords.latitude;
+        let lon = position.coords.longitude;
+        setLatitude(lat);
+        setLongitude(lon);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   };
 
   const getWeatherByCurrentLocation = async (lat, lon) => {
@@ -37,11 +42,12 @@ function Background() {
 
   useEffect(() => {
     if (latitude && longitude) {
-      setTimeout(() => {
-        getWeatherByCurrentLocation(latitude, longitude);
-      }, 100);
+      // setTimeout(() => {
+      //   getWeatherByCurrentLocation(latitude, longitude);
+      // }, 100);
+      getWeatherByCurrentLocation(latitude, longitude);
     }
-  }, [latitude]);
+  }, [latitude, longitude]);
 
   // Time
   let bgList = useSelector((state) => state.backgroundVideo);
